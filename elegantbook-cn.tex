@@ -1,0 +1,227 @@
+\documentclass[cn,10pt,math=newtx,citestyle=gb7714-2015,bibstyle=gb7714-2015]{elegantbook}
+%,math=newtx,math=mtpro2
+
+\usepackage{ntheorem}
+\usepackage{siunitx}
+\usepackage{stmaryrd}
+\usepackage{braket}
+
+\def\bm{\boldsymbol}
+\def\mbf{\mathbf}
+\def\bf{\textbf}
+\def\ms{\mathscr}
+\def\mc{\mathcal}
+\def\mr{\mathrm}
+\def\d{\mathrm d}
+\def\e{\mathrm e}
+\def\i{\mathrm i}
+\def\C{\mathbb C}
+\def\R{\mathbb R}
+\def\N{\mathbb N}
+\def\p{\partial}
+\def\T{^\mathrm T}
+\def\vphi{\varphi}
+\def\ve{\varepsilon}
+\def\dg{\dagger}
+\def\ra{\rightarrow}
+\def\lra{\leftrightarrow}
+\def\ol{\overline}
+\def\opl{\oplus}
+\def\ox{\otimes}
+\def\td{\tilde}
+\def\P{\mathcal P}
+
+\title{化学原理综观}
+\subtitle{Principle of Chemistry: A Comprehensive Perspective}
+
+\author{Benzoin}
+\institute{SA科学社}
+\date{\today}
+\version{0.0}
+\bioinfo{邮箱}{luoweiliang7@pku.edu.cn}
+
+\extrainfo{More is different.}
+
+\setcounter{tocdepth}{3}
+
+\logo{logo1.jpg}
+\cover{cover.jpg}
+
+% 本文档命令
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+\definecolor{customcolor}{RGB}{32,178,170}
+\colorlet{coverlinecolor}{customcolor}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\chapter*{特别声明}
+
+\markboth{Introduction}{前言}
+
+我太菜了
+
+\begin{flushright}
+Benzoin\\
+\today
+\end{flushright}
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{氢原子}
+\section{量子力学的涟漪}
+\subsection{浅谈开普勒问题}
+\subsubsection{质点的运动满足牛顿运动方程}
+\textbf{质点（mass point）} 模型是 \textbf{牛顿（Newton）力学}理论用于描摹物质世界的根基：它是一个没有形状和大小，以质量（mass）$m$ 为唯一固定参数的点。在 $D$ 维世界 $\R^D$ 的空间背景下，只要建立了一个直角坐标系，就可以用一个向量描述质点的\textbf{位置（position）}矢量 $\bm x=(x_1,\cdots,x_D)$，我们似乎生活在一个 $D=3$ 的空间中，此时 $\bm r=(x,y,z)$ 和 $\bm x=(x_1,x_2,x_3)$ 是同义词。施加适当的约束，如一根直线或在一张平面上运动，将引出 $n=1,2$  的情况；而若展开疯狂的想象，$n>3$ 也可以纳入到讨论之中。
+
+除了空间坐标之外，时间也在不断流逝，质点的运动就是其位置随时间的变化，也即\textbf{轨迹（trajectory）}$\bm x(t)$。牛顿力学中将质点与外界的相互作用反映为一个称作\textbf{力（force）}$\bm F$ 的矢量，且牛顿第一定律指出，运动将受到力的影响，如果没有外力，运动将永恒不变。如何刻画这种变与不变呢？位置对时间的变化率称为\textbf{速度（velocity）}$\bm v(t)=\dot{\bm x}(t)$，速度对时间的变化率称为\textbf{加速度（acceleration）}$\bm a(t)=\dot{\bm v}(t)=\ddot{\bm x}(t)$，于是牛顿第二定律定量地指出了
+力如何影响运动：在惯性坐标系中，$\bm F=m\bm a$。因此，只要已知质点的受力，就得到质点的运动方程：
+\begin{equation}\label{eq:Nwtn_2}
+    \bm F = m\frac{\d^2 \bm x}{\d t^2}
+\end{equation}
+这是一个二阶常微分方程，只需要再附加一些条件，例如 $t=0$ 时的位置初值 $\bm x(0)$ 和速度初值 $\bm v(0)$，理论上就可以确定轨迹，因而完整描述了运动。因此在 Newton 的框架下，首要问题就是确定力来自何方，性质如何，施与何处，以建立方程并求解。
+
+\begin{instance}[谐振子]
+限制在直线上，被一端固定在坐标系上的弹簧推拉的质点。如果弹簧原长对应的质点位置为 $x=0$，则 \textbf{Hooke（胡克）定律}表明，质点受到的弹力满足 $F=-\kappa x$，而\textbf{劲度系数（stiffness factor）} $\kappa$ 是弹簧本身的固定参量。弹力是质点的唯一受力，代入方程~\ref{eq:Nwtn_2} 的一维版本，将得到：
+\begin{gather}
+-\kappa x = m\ddot{x}\nonumber\\
+    \ddot{x} + \omega^2 x=0
+\end{gather}
+其中 $\omega=\sqrt{\kappa/m}$ 称为\textbf{角频率（angular frequency）}。
+
+幸运的是，这个足够简单的方程可以直接写出通解的解析式：
+\begin{equation}
+    x(t) = A\e^{\i\omega t}+B\e^{-\i\omega t}
+\end{equation}
+
+其中系数 $A,B$ 的取值则需要初值来确定。例如，如果 $x(0)=x_0,\dot{x}(0)=v_0$，就可以代入计算：
+\begin{gather}\label{eq:1hrmnc_oscltr}
+    x(0) = A+B=x_0\nonumber\\
+    \dot{x}(0) =(A-B)\i\omega = v_0\nonumber\\
+    x(t)= \frac{x_0\omega-\i v_0}{2\omega}\e^{\i\omega t}+\frac{x_0\omega+\i v_0}{2\omega}\e^{-\i\omega t}=x_0\cos\omega t+\frac{v_0}{\omega}\sin{\omega t}
+\end{gather}
+可见初值已经完全确定了这条轨迹；且无关初值，轨迹都是以 $T=2\pi/\omega$ 为周期的的正弦型往复运动。这种运动模式称为\textbf{简谐运动（simple harmonic oscillation）}，这个被弹簧控制的质点也就称为\textbf{谐振子（harmonic oscillator）}。
+\end{instance}
+
+
+即使宏观现实中的物体都有不可忽略的形状，质点模型也常常能紧扣这些物体在相互作用下运动的核心。从基本粒子到天体，极小和极大的物体在合适的问题中都可以抽象为质点。化学所关心的分子和原子也不例外：如果把原子看做质点，利用上述思路，只要确定了每个原子所受的力，就可以通过求解方程~\ref{eq:Nwtn_2} 来预测这些原子的运动，从而理解化学微粒的动态，进而理解这些微粒构成的宏观物质的性质；这就是\textbf{分子动力学（molecular dynamics）}模拟技术的核心思想。谐振子是来自于生活中宏观机械结构的力学模型，但在分子动力学模拟中，两个原子之间的化学键就常常被简化为一根弹簧，此时原子的受力与原子的间距有着简单的线性关系，凭借着这种粗糙的近似就足以刻画分子的振动。然而一个足够大的分子中有多个原子及其间的化学键，也就意味着大量互相连接的弹簧。
+
+\begin{instance}[两个带电质点]
+深居元素周期表的首位，氢原子是化学中最基础、最重要的系统：它由一个电子和一个原子核组成，大道至简。不妨将电子和原子核视作带电的质点，这种质点比牛顿力学中的质点多了一个\textbf{电荷（charge）}的参数 $q$，称为\textbf{点电荷（point charge）}。这一参数控制着点电荷之间普遍存在的\textbf{静电力（electrostatic force）}的大小：电子和氢核的电荷分别为 $-e$ 和 $+e$，，位置分别处于 $\bm r_\text{e},\bm r_\text{p}$，则根据\textbf{库仑（Coulumb）定律}，电子受到来自氢核的静电力为
+\begin{equation*}
+    \bm F_\text{e} = -\frac{e^2}{4\pi\epsilon_0}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}
+\end{equation*}
+氢核受到来自电子的静电力为
+\begin{equation*}
+    \bm F_\text{p} = \frac{e^2}{4\pi\epsilon_0}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}
+\end{equation*}
+其中 $\epsilon_0$ 为\textbf{真空介电常数（permittivity of vacuum）}。假设电子和核的质量分别为 $m_\text{e}$ 和 $m_\text{p}$，于是在这两个质点的视角下分别代入牛顿运动方程~\ref{eq:Nwtn_2} 的三维版本，要求解的方程变为一个微分方程组：
+\begin{equation}\label{eq:H_pnt_chrg}
+    \begin{cases}
+        \ddot{\bm r}_\text{e} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{m_\text{e}}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}\\
+        \ddot{\bm r}_\text{p} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{m_\text{p}}\frac{\bm r_\text{p}-\bm r_\text{e}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}\\
+    \end{cases}
+\end{equation}
+这显然是比谐振子更加复杂的问题，接下来的章节将逐步讨论其求解。
+\end{instance}
+
+\subsubsection{二体问题之约化}
+上一段所举的氢原子之例求解的困难之处在于从微分方程增广为微分方程组——质点的位置演化依赖于其受力，但每个质点的受力都依赖于另一个质点的位置。两个质点的互相影响对方运动状态的问题称为二体问题，但通过一定的数学处理，仿佛能够从中拆出两个互不相干的“质点”；每个“质点”的运动只由自身的位置决定，因此变成了两个单体问题，大大简化了求解系统轨迹的过程。
+
+回顾库仑定律的形式，两个点电荷所受的力的大小和方向只与这两点之间的相对位置 $\bm r =\bm r_\text{e}-\bm r_\text{p}$ 有关，而且满足牛顿第三定律 $\bm F_\text e+\bm F_\text p=0$。基于此考虑一般的两体问题：两质点 1,2 的质量为 $m_1,m_2$，位置为 $\bm r_1,\bm r_2$，且满足以下条件：
+\begin{enumerate}
+    \item 两质点所受的力只与相对位置 $\bm r=\bm r_1-\bm r_2$ 有关
+    \item 两质点所受的力完全来自于相互作用：设质点 $i$ 所受合力 $\bm F_i$，受到来自质点 $j$ 的力为 $\bm F_{ij}$，则
+    \begin{equation}
+        \bm F_1(\bm r) = \bm F_{12}(\bm r),\quad \bm F_2(\bm r) = \bm F_{21}(\bm r)
+    \end{equation}
+    \item 两质点的相互作用满足牛顿第三定律：$\bm F_{12}(\bm r) = -\bm F_{21}(\bm r)$。
+\end{enumerate}
+代入运动方程组 \ref{eq:H_pnt_chrg}，就会发现
+\begin{equation}\label{eq:2bdy_rltv}
+    \ddot{\bm r} = \ddot{\bm r}_1 - \ddot{\bm r}_2 = \frac{\bm F_1(\bm r)}{m_1} - \frac{\bm F_2(\bm r)}{m_2} = \frac{\bm F_{12}(\bm r)}{\mu},\quad \frac{1}{\mu} = \frac{1}{m_1} + \frac{1}{m_2}
+\end{equation}
+
+可以看出这一方程保持着牛顿运动方程的形式，只不过仿佛一个拥有\textbf{约化质量（reduced mass）}$\mu$，坐标位于 $\bm r$ 的质点在力 $\bm F_{12}$ 的作用下运动：不再涉及两个质点坐标之间的方程，这是一个单体问题。
+
+接下来考虑总质量 $M=m_1+m_2$，令 $\bm r_\text c=\frac{m_1\bm r_1+m_2\bm r_2}{M}$，这个新坐标是两个质点坐标按其质量加权后的平均值，称之为\textbf{质心（mass center）}坐标。代入运动方程组 \ref{eq:H_pnt_chrg} 计算质心的运动：
+\begin{equation}
+    \ddot{\bm r}_\text c = \frac{m_1}{M}\ddot{\bm r}_1+\frac{m_2}{M}\ddot{\bm r}_2 = \frac{\bm F_1+\bm F_2}{M}=\bm 0
+\end{equation}
+这一方程也保持着牛顿运动方程的形式——一个位于 $\bm r_\text c$ 的质点不受力自由地漂浮。无需力 $\bm F_{12}$ 的具体形式就可以求解该方程：若质心的初始坐标为 $\bm r_\text c(0)=\bm r_{\text c,0}$，初始速度为 $\dot{\bm r}_\text c(0)=\bm v_{\text c,0}$，则质心的运动方程就是简单的匀速直线运动：
+
+\begin{equation*}
+    \bm r_\text c(t)=\bm r_{\text c,0}+\bm v_{\text c,0}t
+\end{equation*}
+
+从 $\bm r_\text c$ 和 $\bm r$ 可以轻易回到 $\bm r_1,\bm r_2$：小心验算可知
+\begin{equation*}
+    \bm r_1 = \bm r_\text c+\frac{m_1}{M}\bm r, \bm r_2 = \bm r_\text c-\frac{m_2}{M}\bm r
+\end{equation*}
+而轨迹 $\bm r_\text c(t)$ 又如此之平凡，所以只要求解出相对位置的轨迹 $\bm r(t)$ 对应的单体问题，整个二体问题就迎刃而解。
+
+\begin{instance}[谐振子]
+考虑一根弹簧两端固定着两个质量为 $m_1,m_2$ 的质点，它们始终约束在一条直线上运动。弹簧的劲度系数为 $k$，原长为 $l$，设两质点的坐标为 $x_1,x_2$，初始位置为 $x_{10},x_{20}\, (x_1>x_2)$，初始速度为 $v_{10},v_{20}$。根据以上思路：
+\begin{itemize}
+    \item 先求相对位置 $x=x_1-x_2$ 的运动，约化质量 $\mu = \frac{m_1m_2}{m_1+m_2}$，质点间相互作用 $\bm F_{12} = -\kappa (x-l)$，代入方程 \ref{eq:2bdy_rltv}，得到
+    \begin{equation}
+        \ddot{x} = -\kappa (x-l)
+    \end{equation}
+    其初始条件为 $x(0) = x_{10}-x_{20}$，$\dot{x}(0) = \dot{x}_1(0)-\dot{x}_2(0) = v_{10}-v_{20}$，于是直接利用单个谐振子质点的结论 \ref{eq:1hrmnc_oscltr}，得到
+    \begin{equation}
+        x(t) = \left(x_{10}-x_{20}\right)\cos\omega t+\frac{v_{10}-v_{20}}{\omega}\sin\omega t
+    \end{equation}
+    其中角频率 $\omega=\sqrt{\kappa/\mu}$。
+    \item 再求质心 $x_c=\frac{m_1x_1+m_2x_2}{M},\ M=m_1+m_2$ 的运动。其初始位置
+\end{itemize}
+\end{instance}
+
+
+\appendix
+
+\chapter{一些集合论记号}
+\section{集合的笛卡尔积}
+从熟知的有序对（ordered pair）出发，可以定义更长的有序组合：
+\begin{definition}[元组]
+   长度为 $n\ (n>1)$ 的元组（tuple）又称为 $n$ 元组，形如 $(a_1,a_2,\cdots,a_n)$，它等价于二元组的嵌套 $((\cdots((a_1,a_2),a_3),\cdots),a_n)$。各 $a_i$ 称为该元组的坐标（coordinate）或分量。
+\end{definition}
+于是有序对即是 2 元组。由于有序对相等要求两个分量上的元素分别相等，因此容易推知以下结论：
+\begin{theorem}[元组相等的条件]
+    $n$ 元组 $(a_1,\cdots,a_n)\ (n>1)$ 和 $(b_1,\cdots,b_n)$ 相等，等价于 $\forall i\in\{1,\cdots,n\}\,(a_i=b_i)$。
+\end{theorem}
+
+元组所属的集合与其各分量所属的集合的关系描述如下：
+
+\begin{definition}[笛卡尔积]\label{def:Crtsn_prdct}
+    集合 $A_1,A_2,\cdots,A_n$ 的笛卡尔积（Cartesian product）是一个由这些集合中元素结合成的元组组成的集合 $A_1\times A_2\times\cdots\times A_n=\{(a_1,\cdots,a_n)|a_1\in A_1,\cdots,a_n\in A_n\}$
+\end{definition}
+特别地，全体有序实数对组成的集合为 $\R\times\R$，简写为 $\R^2$，类似地可以推知 $\R^n$ 以及任意集合 $A$ 带来的 $A^n$ 的含义。
+\begin{instance}
+如果建立了一个空间直角坐标系，则三维空间中的点都可以表示为坐标 $(x,y,z)$ 的形式，它正是此处定义的三元组，由于每个坐标分量都能遍及全部实数，所以所有这样的三维坐标的集合构成 $\R^3$。这也是常常把三维空间简记为 $\R^3$ 的原因。
+\end{instance}
+\section{映射}
+利用元组的概念可以规范化映射的表示：
+\begin{definition}[映射]
+   从 $X$ 到 $Y$ 的映射（mapping）记作 $f:X\ra Y$。它是 $X\times Y$ 的一个子集，满足只要给定一个 $x\in X$，就只存在唯一的 $y\in Y$ 使得 $(x,y)\in f$，又记作 $y=f(x)$。这时候 $X$ 称为 $f$ 的定义域（domain），记作 $X=\text{dom} f$，$x\in X$ 是 $f$ 的自变量；而 $Y$ 称为 $f$ 的陪域（codomain），$y\in Y$ 是 $f$ 的因变量。
+\end{definition}
+映射根据不同的应用场景，又有函数（function）等别名。
+\begin{definition}[多元映射]
+   如果映射可以表示为 $f:X_1\times\cdots\times X_n\ra Y$，则可称为 $n$ 元映射。若 $x_i\in X_i,\,i=1,\cdots,n$，则 $f(x_1,\cdots,x_n)=f((x_1,\cdots,x_n))$。
+\end{definition}
+\begin{instance}
+可以定义一个二元映射 $\text{plus}:\C^2\ra \C$ 满足 $\text{plus}\,(a,b)=a+b$。于是 $\text{plus}$ 的含义与加法符号 $+$ 没有本质区别：只是通常把 $\text{plus}\,(a,b)=c$ 简记为 $a+b=c$。因此\textbf{运算}（operation）符也可以用多元映射来定义。
+\end{instance}
+\begin{instance}
+为了进一步说明这一抽象，可以定义 $\text{oplus}:\C^2\ra \C$ 满足 $\text{oplus}\,(a,b)=a+b+ab$，并且把 $\text{oplus}\,(a,b)=c$ 简记为 $a\oplus b=c$。尽管这是初等数学练习中的常见小把戏，但恰如其分地说明了这一思想。
+\end{instance}
+
+
+
+
+\end{document}
