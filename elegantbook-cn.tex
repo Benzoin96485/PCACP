@@ -76,7 +76,7 @@ Benzoin\\
 
 \chapter{氢原子}
 \section{量子力学的涟漪}
-\subsection{中心力场问题}
+\subsection{开普勒问题中的力学框架}
 \subsubsection{质点的运动满足牛顿运动方程}
 \textbf{质点（mass point）} 模型是 \textbf{牛顿（Newton）力学}理论用于描摹物质世界的根基：它是一个没有形状和大小，以质量（mass）$m$ 为唯一固定参数的点。在 $D$ 维世界 $\R^D$ 的空间背景下，只要建立了一个直角坐标系，就可以用一个向量描述质点的\textbf{位置（position）}矢量 $\bm x=(x_1,\cdots,x_D)$，我们似乎生活在一个 $D=3$ 的空间中，此时 $\bm r=(x,y,z)$ 和 $\bm x=(x_1,x_2,x_3)$ 是同义词。施加适当的约束，如一根直线或在一张平面上运动，将引出 $n=1,2$  的情况；而若展开疯狂的想象，$n>3$ 也可以纳入到讨论之中。
 
@@ -88,49 +88,49 @@ Benzoin\\
 这是一个二阶常微分方程，只需要再附加一些条件，例如 $t=0$ 时的位置初值 $\bm x(0)$ 和速度初值 $\bm v(0)$，理论上就可以确定轨迹，因而完整描述了运动。因此在牛顿的框架下，首要问题就是确定力来自何方，性质如何，施于何处，以建立方程并求解。
 
 \begin{instance}[谐振子]
-限制在直线上，被一端固定在坐标系上的弹簧推拉的质点。如果弹簧原长对应的质点位置为 $x=0$，则 \textbf{胡克（Hooke）定律}表明，质点受到的弹力满足 $F=-\kappa x$，而\textbf{劲度系数（stiffness factor）} $\kappa$ 是弹簧本身的固定参量。弹力是质点的唯一受力，代入方程~\ref{eq:Nwtn_2} 的一维版本，将得到：
-\begin{gather*}
--\kappa x = m\ddot{x}\nonumber\\
-    \ddot{x} + \omega^2 x=0
-\end{gather*}
-其中 $\omega=\sqrt{\kappa/m}$ 称为\textbf{角频率（angular frequency）}。
-
-幸运的是，这个足够简单的方程可以直接写出通解的解析式：
-\begin{equation*}
-    x(t) = A\e^{\i\omega t}+B\e^{-\i\omega t}
-\end{equation*}
-其中系数 $A,B$ 的取值则需要初值来确定。例如，如果 $x(0)=x_0,\dot{x}(0)=v_0$，就可以代入计算：
-\begin{gather}\label{eq:1hrmnc_oscltr}
-    x(0) = A+B=x_0\nonumber\\
-    \dot{x}(0) =(A-B)\i\omega = v_0\nonumber\\
-    x(t)= \frac{x_0\omega-\i v_0}{2\omega}\e^{\i\omega t}+\frac{x_0\omega+\i v_0}{2\omega}\e^{-\i\omega t}=x_0\cos\omega t+\frac{v_0}{\omega}\sin{\omega t}
-\end{gather}
-可见初值已经完全确定了这条轨迹；且无关初值，轨迹都是以 $T=2\pi/\omega$ 为周期的的正弦型往复运动。这种运动模式称为\textbf{简谐运动（simple harmonic oscillation）}，这个被弹簧控制的质点也就称为\textbf{谐振子（harmonic oscillator）}。
+    限制在直线上，被一端固定在坐标系上的弹簧推拉的质点。如果弹簧原长对应的质点位置为 $x=0$，则 \textbf{胡克（Hooke）定律}表明，质点受到的弹力满足 $F=-\kappa x$，而\textbf{劲度系数（stiffness factor）} $\kappa$ 是弹簧本身的固定参量。弹力是质点的唯一受力，代入方程~\ref{eq:Nwtn_2} 的一维版本，将得到：
+    \begin{gather*}
+        -\kappa x = m\ddot{x}\nonumber\\
+        \ddot{x} + \omega^2 x=0
+    \end{gather*}
+    其中 $\omega=\sqrt{\kappa/m}$ 称为\textbf{角频率（angular frequency）}。
+    
+    幸运的是，这个足够简单的方程可以直接写出通解的解析式：
+    \begin{equation*}
+        x(t) = A\e^{\i\omega t}+B\e^{-\i\omega t}
+    \end{equation*}
+    其中系数 $A,B$ 的取值则需要初值来确定。例如，如果 $x(0)=x_0,\dot{x}(0)=v_0$，就可以代入计算：
+    \begin{gather}\label{eq:1hrmnc_oscltr}
+        x(0) = A+B=x_0\nonumber\\
+        \dot{x}(0) =(A-B)\i\omega = v_0\nonumber\\
+        x(t)= \frac{x_0\omega-\i v_0}{2\omega}\e^{\i\omega t}+\frac{x_0\omega+\i v_0}{2\omega}\e^{-\i\omega t}=x_0\cos\omega t+\frac{v_0}{\omega}\sin{\omega t}
+    \end{gather}
+    可见初值已经完全确定了这条轨迹；且无关初值，轨迹都是以 $T=2\pi/\omega$ 为周期的的正弦型往复运动。这种运动模式称为\textbf{简谐运动（simple harmonic oscillation）}，这个被弹簧控制的质点也就称为\textbf{谐振子（harmonic oscillator）}。
 \end{instance}
 
 
 即使宏观现实中的物体都有不可忽略的形状，质点模型也常常能紧扣这些物体在相互作用下运动的核心。从基本粒子到天体，极小和极大的物体在合适的问题中都可以抽象为质点。化学所关心的分子和原子也不例外：如果把原子看做质点，利用上述思路，只要确定了每个原子所受的力，就可以通过求解方程~\ref{eq:Nwtn_2} 来预测这些原子的运动，从而理解化学微粒的动态，进而理解这些微粒构成的宏观物质的性质；这就是\textbf{分子动力学（molecular dynamics）}模拟技术的核心思想。谐振子是来自于生活中宏观机械结构的力学模型，但在分子动力学模拟中，两个原子之间的化学键就常常被简化为一根弹簧，此时原子的受力与原子的间距有着简单的线性关系，凭借着这种粗糙的近似就足以刻画分子的振动。然而一个足够大的分子中有多个原子及其间的化学键，也就意味着大量互相连接的弹簧。
 
 \begin{instance}[两个带电质点]
-深居元素周期表的首位，氢原子是化学中最基础、最重要的系统：它由一个\textbf{电子（electron）}和一个\textbf{原子核（nucleus）}组成，大道至简。不妨将电子和原子核视作带电的质点，这种质点比牛顿力学中的质点多了一个\textbf{电荷（charge）}的参数 $q$，称为\textbf{点电荷（point charge）}。这一参数控制着点电荷之间普遍存在的\textbf{静电力（electrostatic force）}的大小：电子和氢核的电荷分别为 $-e$ 和 $+e$，，位置分别处于 $\bm r_\text{e},\bm r_\text{p}$，则根据\textbf{库仑（Coulumb）定律}，电子受到来自氢核的静电力为
-\begin{equation*}
-    \bm F_\text{e} = -\frac{e^2}{4\pi\epsilon_0}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}
-\end{equation*}
-氢核受到来自电子的静电力为
-\begin{equation*}
-    \bm F_\text{p} = \frac{e^2}{4\pi\epsilon_0}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}
-\end{equation*}
-其中 $\epsilon_0$ 为\textbf{真空介电常数（permittivity of vacuum）}。假设电子和核的质量分别为 $m_\text{e}$ 和 $m_\text{p}$，于是在这两个质点的视角下分别代入牛顿运动方程~\ref{eq:Nwtn_2} 的三维版本，要求解的方程变为一个微分方程组：
-\begin{equation}\label{eq:H_pnt_chrg}
-    \begin{cases}
-        \ddot{\bm r}_\text{e} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{m_\text{e}}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}\\
-        \ddot{\bm r}_\text{p} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{m_\text{p}}\frac{\bm r_\text{p}-\bm r_\text{e}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}\\
-    \end{cases}
-\end{equation}
-这显然是比谐振子更加复杂的问题，接下来的章节将逐步讨论其求解。
+    深居元素周期表的首位，氢原子是化学中最基础、最重要的系统：它由一个\textbf{电子（electron）}和一个\textbf{原子核（nucleus）}组成，大道至简。不妨将电子和原子核视作带电的质点，这种质点比牛顿力学中的质点多了一个\textbf{电荷（charge）}的参数 $q$，称为\textbf{点电荷（point charge）}。这一参数控制着点电荷之间普遍存在的\textbf{静电力（electrostatic force）}的大小：电子和氢核的电荷分别为 $-e$ 和 $+e$，，位置分别处于 $\bm r_\text{e},\bm r_\text{p}$，则根据\textbf{库仑（Coulumb）定律}，电子受到来自氢核的静电力为
+    \begin{equation*}
+        \bm F_\text{e} = -\frac{e^2}{4\pi\epsilon_0}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}
+    \end{equation*}
+    氢核受到来自电子的静电力为
+    \begin{equation*}
+        \bm F_\text{p} = \frac{e^2}{4\pi\epsilon_0}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}
+    \end{equation*}
+    其中 $\epsilon_0$ 为\textbf{真空介电常数（permittivity of vacuum）}。假设电子和核的质量分别为 $m_\text{e}$ 和 $m_\text{p}$，于是在这两个质点的视角下分别代入牛顿运动方程~\ref{eq:Nwtn_2} 的三维版本，要求解的方程变为一个微分方程组：
+    \begin{equation}\label{eq:H_pnt_chrg}
+        \begin{cases}
+            \ddot{\bm r}_\text{e} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{m_\text{e}}\frac{\bm r_\text{e}-\bm r_\text{p}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}\\
+            \ddot{\bm r}_\text{p} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{m_\text{p}}\frac{\bm r_\text{p}-\bm r_\text{e}}{\left|\bm r_\text{e}-\bm r_\text{p}\right|^3}\\
+        \end{cases}
+    \end{equation}
+    这显然是比谐振子更加复杂的问题，接下来的章节将逐步讨论其求解。
 \end{instance}
 
-\subsubsection{二体问题与动量守恒}
+\subsubsection{二体问题的约化与动量的引入}
 上一段所举的氢原子之例求解的困难之处在于从微分方程增广为微分方程组——质点的位置演化依赖于其受力，但每个质点的受力都依赖于另一个质点的位置。两个质点的互相影响对方运动状态的问题称为二体问题，但通过一定的数学处理，仿佛能够从中拆出两个互不相干的“质点”；每个“质点”的运动只由自身的位置决定，因此变成了两个单体问题，大大简化了求解系统轨迹的过程。
 
 回顾库仑定律的形式，两个点电荷所受的力的大小和方向只与这两点之间的相对位置 $\bm r =\bm r_\text{e}-\bm r_\text{p}$ 有关，而且满足牛顿第三定律 $\bm F_\text e+\bm F_\text p=0$。基于此考虑一般的两体问题：两质点 1,2 的质量为 $m_1,m_2$，位置为 $\bm r_1,\bm r_2$，且满足以下条件：
@@ -150,9 +150,9 @@ Benzoin\\
 可以看出这一方程保持着牛顿运动方程的形式，只不过仿佛一个拥有\textbf{约化质量（reduced mass）}$\mu$，坐标位于 $\bm r$ 的质点在力 $\bm F_{12}$ 的作用下运动：不再涉及两个质点坐标之间的方程，这是一个单体问题。
 
 接下来考虑总质量 $M=m_1+m_2$，令 $\bm r_\text c=\frac{m_1\bm r_1+m_2\bm r_2}{M}$，这个新坐标是两个质点坐标按其质量加权后的平均值，称之为\textbf{质心（mass center）}坐标。代入运动方程组 \ref{eq:H_pnt_chrg} 计算质心的运动：
-\begin{equation*}
+\begin{equation}\label{eq:2bdy_msscntr_eq}
     \ddot{\bm r}_\text c = \frac{m_1}{M}\ddot{\bm r}_1+\frac{m_2}{M}\ddot{\bm r}_2 = \frac{\bm F_1+\bm F_2}{M}=\bm 0
-\end{equation*}
+\end{equation}
 这一方程也保持着牛顿运动方程的形式——一个位于 $\bm r_\text c$ 的质点不受力自由地漂浮。无需力 $\bm F_{12}$ 的具体形式就可以求解该方程：若质心的初始坐标为 $\bm r_\text c(0)=\bm r_{\text c,0}$，初始速度为 $\dot{\bm r}_\text c(0)=\bm v_{\text c,0}$，则质心的运动方程就是简单的匀速直线运动：
 
 \begin{equation}\label{eq:2bdy_msscntr}
@@ -166,62 +166,105 @@ Benzoin\\
 而轨迹 $\bm r_\text c(t)$ 又如此之平凡，所以只要求解出相对位置的轨迹 $\bm r(t)$ 对应的单体问题，整个二体问题就迎刃而解。
 
 \begin{instance}[谐振子两体问题]
-考虑一根弹簧两端固定着两个质量为 $m_1,m_2$ 的质点，它们始终约束在一条直线上运动。弹簧的劲度系数为 $k$，原长为 $l$，设两质点的坐标为 $x_1,x_2$，初始位置为 $x_{10},x_{20}\, (x_1>x_2)$，初始速度为 $v_{10},v_{20}$。根据以上思路：
-\begin{itemize}
-    \item 先求相对位置 $x=x_1-x_2$ 的运动，约化质量 $\mu = \frac{m_1m_2}{m_1+m_2}$，质点间相互作用 $\bm F_{12} = -\kappa (x-l)$，代入方程 \ref{eq:2bdy_rltv}，得到
-    \begin{equation*}
-        \ddot{x} = -\frac{\kappa}{\mu} (x-l)
-    \end{equation*}
-    其初始条件为 $x(0) = x_{10}-x_{20}$，$\dot{x}(0) = \dot{x}_1(0)-\dot{x}_2(0) = v_{10}-v_{20}$，于是直接利用单个谐振子质点的结论 \ref{eq:1hrmnc_oscltr}，得到
-    \begin{equation*}
-        x(t) = l + \left(x_{10}-x_{20}-l\right)\cos\omega t+\frac{v_{10}-v_{20}}{\omega}\sin\omega t
-    \end{equation*}
-    其中角频率 $\omega=\sqrt{\kappa/\mu}$。
-    \item 再求质心 $x_{\text c}=\frac{m_1x_1+m_2x_2}{M},\ M=m_1+m_2$ 的运动。其初始位置为 $x_{\text c,0}=\frac{m_1x_{10}+m_2x_{20}}{M}$，初始速度为
-    \begin{equation*}
-        v_{\text c,0} = \dot{x}_{\text c}(0) = \frac{m_1v_{10}+m_2v_{20}}{M}
-    \end{equation*}
-    代入 \ref{eq:2bdy_msscntr}，得到
-    \begin{equation*}
-        x_{\text c}(t) = \frac{1}{M}\left[m_1x_{10}+m_2x_{20} + \left(m_1v_{10}+m_2v_{20}\right)t\right]
-    \end{equation*}
-    \item 最后回到两个质点各自的轨迹。代入 \ref{eq:2bdy_bck}，得到
-    \begin{gather*}
-        x_1(t) = \frac{m_1x_{10}+m_2x_{20}+m_1l}{M}+\frac{m_1v_{10}+m_2v_{20}}{M}t + \frac{m_1(x_{10}-x_{20}-l)}{M}\cos\omega t +\frac{m_1(v_{10}-v_{20})}{M\omega}\sin\omega t\\
-        x_2(t) = \frac{m_1x_{10}+m_2x_{20}-m_2l}{M}+\frac{m_1v_{10}+m_2v_{20}}{M}t - \frac{m_2(x_{10}-x_{20}-l)}{M}\cos\omega t -\frac{m_2(v_{10}-v_{20})}{M\omega}\sin\omega t
-    \end{gather*}
-\end{itemize}
-这样就解出了两个质点的运动方程。
+    考虑一根弹簧两端固定着两个质量为 $m_1,m_2$ 的质点，它们始终约束在一条直线上运动。弹簧的劲度系数为 $k$，原长为 $l$，设两质点的坐标为 $x_1,x_2$，初始位置为 $x_{10},x_{20}\, (x_1>x_2)$，初始速度为 $v_{10},v_{20}$。根据以上思路：
+    \begin{itemize}
+        \item 先求相对位置 $x=x_1-x_2$ 的运动，约化质量 $\mu = \frac{m_1m_2}{m_1+m_2}$，质点间相互作用 $\bm F_{12} = -\kappa (x-l)$，代入方程 \ref{eq:2bdy_rltv}，得到
+        \begin{equation*}
+            \ddot{x} = -\frac{\kappa}{\mu} (x-l)
+        \end{equation*}
+        其初始条件为 $x(0) = x_{10}-x_{20}$，$\dot{x}(0) = \dot{x}_1(0)-\dot{x}_2(0) = v_{10}-v_{20}$，于是直接利用单个谐振子质点的结论 \ref{eq:1hrmnc_oscltr}，得到
+        \begin{equation*}
+            x(t) = l + \left(x_{10}-x_{20}-l\right)\cos\omega t+\frac{v_{10}-v_{20}}{\omega}\sin\omega t
+        \end{equation*}
+        其中角频率 $\omega=\sqrt{\kappa/\mu}$。
+        \item 再求质心 $x_{\text c}=\frac{m_1x_1+m_2x_2}{M},\ M=m_1+m_2$ 的运动。其初始位置为 $x_{\text c,0}=\frac{m_1x_{10}+m_2x_{20}}{M}$，初始速度为
+        \begin{equation*}
+            v_{\text c,0} = \dot{x}_{\text c}(0) = \frac{m_1v_{10}+m_2v_{20}}{M}
+        \end{equation*}
+        代入 \ref{eq:2bdy_msscntr}，得到
+        \begin{equation*}
+            x_{\text c}(t) = \frac{1}{M}\left[m_1x_{10}+m_2x_{20} + \left(m_1v_{10}+m_2v_{20}\right)t\right]
+        \end{equation*}
+        \item 最后回到两个质点各自的轨迹。代入 \ref{eq:2bdy_bck}，得到
+        \begin{gather*}
+            x_1(t) = \frac{m_1x_{10}+m_2x_{20}+m_1l}{M}+\frac{m_1v_{10}+m_2v_{20}}{M}t + \frac{m_1(x_{10}-x_{20}-l)}{M}\cos\omega t +\frac{m_1(v_{10}-v_{20})}{M\omega}\sin\omega t\\
+            x_2(t) = \frac{m_1x_{10}+m_2x_{20}-m_2l}{M}+\frac{m_1v_{10}+m_2v_{20}}{M}t - \frac{m_2(x_{10}-x_{20}-l)}{M}\cos\omega t -\frac{m_2(v_{10}-v_{20})}{M\omega}\sin\omega t
+        \end{gather*}
+    \end{itemize}
+    这样就解出了两个质点的运动方程。
 \end{instance}
 
 \begin{instance}[氢原子双点电荷模型的约化]
-在氢原子的点电荷模型中使用前述的两体问题方法：用代表电子的 e 和代表原子核的 p 替代下标 1,2，如果已知相对位置 $\bm r=\bm r_\text e-\bm r_\text p$ 的运动，则后续的求质心运动、求两质点分别的运动轨迹都会变得非常简单，因此该问题的核心就是处理以下相对位置的运动方程：
-\begin{equation*}
-    \ddot{\bm r} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{\mu}\frac{\bm r}{r^3}
-\end{equation*}
-它等价于一个质量为 $\mu$ 的粒子，在 $\bm r$ 处总是受到力 $-\frac{e^2}{4\pi\epsilon_0}\frac{\bm r}{r^3}$ 时的运动。
+    在氢原子的点电荷模型中使用前述的两体问题方法：用代表电子的 e 和代表原子核的 p 替代下标 1,2，如果已知相对位置 $\bm r=\bm r_\text e-\bm r_\text p$ 的运动，则后续的求质心运动、求两质点分别的运动轨迹都会变得非常简单，因此该问题的核心就是处理以下相对位置的运动方程：
+    \begin{equation*}
+        \ddot{\bm r} = -\frac{1}{4\pi\epsilon_0}\frac{e^2}{\mu}\frac{\bm r}{r^3}
+    \end{equation*}
+    它等价于一个质量为 $\mu$ 的粒子，在 $\bm r$ 处总是受到力 $-\frac{e^2}{4\pi\epsilon_0}\frac{\bm r}{r^3}$ 时的运动。
 \end{instance}
 
-如果体系中有更多的质点，
+如果体系中有更多的质点，以上约化思路不再适用，但 \ref{eq:2bdy_msscntr_eq} 的精神得以延续：由于 $\ddot{\bm r}_\text c=0$，所以
+\begin{equation*}
+    \dot{\bm r}_\text c(t)=\frac{m_1\dot{\bm r}_1(t)+m_2\dot {\bm r}_2(t)}{M}\equiv\frac{m_1\dot{\bm r}_1(0)+m_2\dot {\bm r}_2(0)}{M}
+\end{equation*}
+即质心速度在整个运动过程不变。此时对每个质点定义\textbf{动量（momentum）} $\bm p=m\dot{\bm r}$，则上式表明 $\bm p_1+\bm p_2$ 为定值，也就是两个质点的总动量为零。对于更多质点，若质量为 $m_1,\cdots,m_n$，位于 $\bm r_1,\cdots,\bm r_n$，受力满足以下条件：
+\begin{enumerate}
+    \item 每个质点所受的力只与各质点的相对位置 $\bm r_{ij}=\bm r_i-\bm r_j$ 有关
+    \item 两质点所受的力完全来自于其间的相互作用：设质点 $i$ 所受合力 $\bm F_i$，受到来自质点 $j$ 的力为 $\bm F_{ij}$，则
+    \begin{equation*}
+        \bm F_i(\bm r_{i1},\cdots,\bm r_{in}) = \sum_{j\ne i}\bm F_{ij}(\bm r_{ij})
+    \end{equation*}
+    \item 两质点的相互作用满足牛顿第三定律：$\bm F_{ij}(\bm r_{ij}) = -\bm F_{ji}(\bm r_{ij})$。
+\end{enumerate}
+则延续上述思路定义质心为按质量的加权平均
+\begin{equation*}
+    \bm r_\text c=\frac{1}{M}\sum_i m_i\bm r_i
+\end{equation*}
+则可以推出其运动方程
+\begin{equation*}
+    \ddot{\bm r}_\text c=\frac{1}{M}\sum_i m_i\frac{\bm F_i}{m_i} = \frac{1}{M}\sum_i\bm F_i = \frac{1}{M}\sum_i\sum_{j\ne i}F_{ij}=0
+\end{equation*}
+最后一个等号是因为在对 $i,j$ 的双重求和中，$\bm F_{ij}$ 和 $\bm F_{ji}$ 都会出现且相互抵消。从动量的观点来看，这意味着
+\begin{equation*}
+    \sum_{i}\bm p_i(t) = \sum_i m_i\dot{\bm r}_i(t)=M\dot{\bm r}_\text c(t)\equiv M\dot{\bm r}_\text c(0)
+\end{equation*}
+因此这些质点的总动量仍是不变的，推广了在二体问题中得到的结论，我们将其概述为：
+\begin{theorem}[动量守恒定律（v1.0）]
+    如果一些质点所受的力完全来自于它们之间遵守牛顿第三定律的相互作用，则它们在按照牛顿第二定律运动的过程中，总动量守恒。
+\end{theorem}
 
-\subsubsection{势能与能量守恒}
-谐振子或约化后的双点电荷氢原子模型代表了一类受力只与质点位置有关的运动，即 $\bm F=\bm F(\bm r)$。
+\subsubsection{把能量作为力的简化描述}
+谐振子或约化后的双点电荷氢原子模型代表了一类受力只与质点位置有关的运动，即 $\bm F=\bm F(\bm r)$。然而在高于一维的情况用一个矢量函数 $\bm F:\R^3\ra\R^3$ 来描述质点所受的相互作用或许是冗余的，接下来的分析会简化这种描述，并且在更进一步的数学处理中，简化后的描述将更加接近问题的本质。
 
-如果此类问题是一维的，则可以定义\textbf{势能（potential energy）}$V(x) = -\int F(x)\d x$，它仅是位置的函数，而不定积分式意味着这个函数 $V(x)$ 可以任意加减一个常数，因此可能取到任何实数。
+从一维问题开始，定义\textbf{势能（potential energy）}$V(x) = -\int F(x)\d x$，它仅是位置的函数，而不定积分式意味着这个函数 $V(x)$ 可以任意加减一个常数，因此可能取到任何实数；通常人为选定一个势能零点来确定其具体取值。
 
 再定义\textbf{动能（kinetic energy）}$T(v)=\frac{1}{2}m v^2$，它仅是速度的函数，总是非负数并在质点静止时取到 0。动能和势能之和称为\textbf{总能（total energy）}：
-\begin{equation}
+\begin{equation*}
     E(t) = E(x(t),\dot x(t))=\frac{1}{2}m(\dot x(t))^2+V(x(t))
-\end{equation}
+\end{equation*}
 之所以要引入这一物理量，是因为尽管质点的位置常常随时间变化，但在整条轨迹上
-\begin{equation}
+\begin{equation*}
     \frac{\d E}{\d t}=m\dot x\ddot x+V'(x)\dot x=\dot x(m\ddot x+V'(x))=\dot x(m\ddot x-F)=0
-\end{equation}
-这说明总能是一个\textbf{守恒量（conserved quantity）}。总能中的动能项与质点受力没有任何关系，而势能项完全描述了此情况下的受力，因为 $V'(x)=F(x)$。对于谐振子，如果以弹簧原长为势能零点，则容易写出 $V(x) = \frac{1}{2}kx^2=\frac{1}{2}m\omega^2x^2$。
+\end{equation*}
+这说明总能是一个\textbf{守恒量（conserved quantity）}。总能中的动能项与质点受力没有任何关系，而势能项完全描述了此情况下的受力，因为通过求导： $V'(x)=F(x)$，就能从中提取出力。
 
-然而在更高维的情况中，动能的定义自然推广为 $T(\bm v)=\frac{1}{2}m \bm v^2$，但并不总能写出一个势能函数满足能量守恒。
+\begin{instance}[一维谐振子势]
+    回到一维谐振子的单体问题，注意到 $x=0$ 的位置对应于弹簧处于原长，接下来写出其势能：
+    \begin{itemize}
+        \item 选定势能零点：令弹簧原长处势能为 0，即 $V(0)=0$。
+        \item 不定积分：
+        \begin{equation*}
+            V(x) = \int kx\d x=\frac{1}{2}kx^2+C=\frac{1}{2}m\omega^2x^2+C
+        \end{equation*}
+        由于 $V(0)=0$，可确定 $C=0$，所以解出了弹性势能的表达式：
+        \begin{equation*}
+            V(x) = \frac{1}{2}m\omega^2x^2
+        \end{equation*}
+    \end{itemize}
+\end{instance}
 
-\begin{theorem}[能量守恒定律]
+在更高维的情况中，动能的定义自然推广为 $T(\bm v)=\frac{1}{2}m \bm v^2$，这样做的理由类似：
+
+\begin{theorem}[能量守恒定律（v1.0）]
     如果一个质点的受力只与位置有关，且轨迹满足牛顿运动方程 ，则存在势能使得 $-\nabla V=\bm F$ 当且仅当能量函数
     \begin{equation}
         E(\bm r,\dot{\bm r})=\frac{1}{2}m|\dot{\bm r}|^2+V(\bm r)
@@ -235,22 +278,22 @@ Benzoin\\
     \end{equation}
     若 $\dot{\bm r}$ 不恒为 0，则 $\frac{\d E}{\d t}=0$ 的等价条件就是 $-\nabla V=\bm F$。
 \end{proof}
-如果条件 $-\nabla V=\bm F$ 得到满足，则既可以说质点受制于一个力场 $\bm F(\bm r)$，又可以说陷入了一个势场 $V(\bm r)$。但并非每一个力场都能找到对应的势场，伴随有势场的力场称为\textbf{保守力（conservative force）}。前面的讨论表明，一维情况中的力的保守性是普遍的，而在三维情况中需要援引矢量分析中梯度场无旋的结论：
+如果条件 $-\nabla V=\bm F$ 得到满足，则既可以说质点受制于一个力场 $\bm F(\bm r)$，又可以说陷入了一个势场 $V(\bm r)$。尽管前面的讨论表明，一维情况中的力的保守性是普遍的；但在三维情况中，并非每一个力场都能找到对应的势场，伴随有势场的力场称为\textbf{保守力（conservative force）}，援引矢量分析中的结论可知：
 
 \begin{theorem}[保守力的等价条件]
     如果 $D$ 是 $\R^3$ 中的单连通区域，而 $\bm F(\bm r)$ 是光滑函数，则 $\bm F$ 是保守力当且仅当 $\nabla\times\bm F=0$。
 \end{theorem}
+\begin{proof}
+    根据定义，$\bm F:\R^3\ra \R^3$ 是 $V:\R^3\ra\R$ 的梯度场，而梯度场是无旋的。详见一般微积分教材的场论章节。
+\end{proof}
 
-\subsubsection{动量守恒}
+\subsubsection{旋转与角动量}
 
-\subsubsection{角动量守恒}
-
-\subsubsection{隆格楞次矢量}
+\subsubsection{开普勒问题中的隆格-楞次矢量}
 定义\textbf{隆格-楞次（Runge-Lenz）矢量}：
 \begin{equation*}
     \bm A(\bm r,\bm p) = \frac{\bm p\times\bm J}{mk}-\frac{\bm r}{r}
 \end{equation*}
-
 
 \appendix
 
